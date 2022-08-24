@@ -1,0 +1,74 @@
+<html>
+<head>
+    <title>
+        Graph Ploter | NextGen Developer
+    </title>
+    <style>
+        canvas{
+            background-color: rgba(15, 15, 15, 0.6);
+            position: relative;
+            overflow: auto;
+        }
+        .container {
+            display: table;
+            width: 100%;
+        }
+        .left-half {
+            height: 100%;
+            position: fixed;
+            left: 0px;
+            width: 75%;
+        }
+        
+        .right-half {
+            height: 100%;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 25%;
+            background-color: rgba(221, 221, 221, 0.74);
+            padding: 15px;
+        }
+        input{
+            width: 50px;
+            border-radius:5px;
+            padding: 0px 4px 0px 0px; 
+        }
+        span{
+            display: inline-block;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="description" content="Plot the point and join the line on graph to get adject path of each point and visual the path on the 2D platform for free">
+    <meta name="keywords" content="Free graph ploter, graph ploter 2D,Virtual Graph, graph, ">
+    <meta name="author" content="Yash Patel">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <section class="container">
+        <div class="left-side">
+            <canvas id="graphPlot"></canvas>
+        </div>
+        <div class="right-half">
+            <div class="input-controler">
+                <p><b>Canvas Size:</b></p>
+                X(Width): <input type="text" id="input-width" value="1" onchange="refreshSize('x')" /> &nbsp; 
+                <span>Y(Height): <input type="number" id="input-height" value="1" onchange="refreshSize('y')" /></span>
+                <p></p>
+                <p><b>Ploting Range:</b></p>
+                <span>X: 0 - <input type="number" id="input-range-x" value="9" onchange="refreshRange('x')" />(Auto)</span>
+                <span>Y: 0 - <input type="number" id="input-range-y" value="9" onchange="refreshRange('y')" />(Auto)</span>
+                <p></p>
+                <span><button onclick="addNewPoint()">Add Point</button> &nbsp;</span>
+                <ol id="input-tray">
+                    <li>X: <input type="number" onchange="updatePoint(this)" value="0"> Y: <input type="number" onchange="updatePoint(this)" value="0"> </li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="JS/script.js"></script>
+</body>
+
+</html>
